@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dps.exlibris.com/" xmlns:jaxws="http://java.sun.com/xml/ns/jaxws" name="DeliveryAccessWS" targetNamespace="http://dps.exlibris.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://dps.exlibris.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:element name="getBaseFileUrl" type="tns:getBaseFileUrl" />
+      <xs:element name="getBaseFileUrlResponse" type="tns:getBaseFileUrlResponse" />
+      <xs:element name="getCMSRecord" type="tns:getCMSRecord" />
+      <xs:element name="getCMSRecordResponse" type="tns:getCMSRecordResponse" />
+      <xs:element name="getDnxDocument" type="tns:getDnxDocument" />
+      <xs:element name="getDnxDocumentResponse" type="tns:getDnxDocumentResponse" />
+      <xs:element name="getFilePathByDvs" type="tns:getFilePathByDvs" />
+      <xs:element name="getFilePathByDvsResponse" type="tns:getFilePathByDvsResponse" />
+      <xs:element name="getFullIEByDVS" type="tns:getFullIEByDVS" />
+      <xs:element name="getFullIEByDVSResponse" type="tns:getFullIEByDVSResponse" />
+      <xs:element name="getHeartBit" type="tns:getHeartBit" />
+      <xs:element name="getHeartBitResponse" type="tns:getHeartBitResponse" />
+      <xs:element name="getIE" type="tns:getIE" />
+      <xs:element name="getIEByDVS" type="tns:getIEByDVS" />
+      <xs:element name="getIEByDVSResponse" type="tns:getIEByDVSResponse" />
+      <xs:element name="getIEResponse" type="tns:getIEResponse" />
+      <xs:element name="getMetadata" type="tns:getMetadata" />
+      <xs:element name="getMetadataResponse" type="tns:getMetadataResponse" />
+      <xs:complexType name="getMetadata">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+          <xs:element minOccurs="0" name="pid" type="xs:string" />
+          <xs:element minOccurs="0" name="mdType" type="xs:string" />
+          <xs:element minOccurs="0" name="mdSubType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMetadataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getHeartBit">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getHeartBitResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIE">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEByDVS">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEByDVSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFullIEByDVS">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFullIEByDVSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFilePathByDvs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+          <xs:element minOccurs="0" name="pid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getFilePathByDvsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDnxDocument">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+          <xs:element minOccurs="0" name="pid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDnxDocumentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCMSRecord">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+          <xs:element minOccurs="0" name="iePID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCMSRecordResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBaseFileUrl">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBaseFileUrlResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="DeliveryAccessWS_getIEByDVS">
+    <part name="getIEByDVS" element="tns:getIEByDVS" />
+  </message>
+  <message name="DeliveryAccessWS_getMetadata">
+    <part name="getMetadata" element="tns:getMetadata" />
+  </message>
+  <message name="DeliveryAccessWS_getFilePathByDvsResponse">
+    <part name="getFilePathByDvsResponse" element="tns:getFilePathByDvsResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getHeartBitResponse">
+    <part name="getHeartBitResponse" element="tns:getHeartBitResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getDnxDocument">
+    <part name="getDnxDocument" element="tns:getDnxDocument" />
+  </message>
+  <message name="DeliveryAccessWS_getIE">
+    <part name="getIE" element="tns:getIE" />
+  </message>
+  <message name="DeliveryAccessWS_getBaseFileUrlResponse">
+    <part name="getBaseFileUrlResponse" element="tns:getBaseFileUrlResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getFilePathByDvs">
+    <part name="getFilePathByDvs" element="tns:getFilePathByDvs" />
+  </message>
+  <message name="DeliveryAccessWS_getFullIEByDVS">
+    <part name="getFullIEByDVS" element="tns:getFullIEByDVS" />
+  </message>
+  <message name="DeliveryAccessWS_getFullIEByDVSResponse">
+    <part name="getFullIEByDVSResponse" element="tns:getFullIEByDVSResponse" />
+  </message>
+  <message name="Exception">
+    <part name="Exception" element="tns:Exception" />
+  </message>
+  <message name="DeliveryAccessWS_getHeartBit">
+    <part name="getHeartBit" element="tns:getHeartBit" />
+  </message>
+  <message name="DeliveryAccessWS_getCMSRecord">
+    <part name="getCMSRecord" element="tns:getCMSRecord" />
+  </message>
+  <message name="DeliveryAccessWS_getIEByDVSResponse">
+    <part name="getIEByDVSResponse" element="tns:getIEByDVSResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getBaseFileUrl">
+    <part name="getBaseFileUrl" element="tns:getBaseFileUrl" />
+  </message>
+  <message name="DeliveryAccessWS_getDnxDocumentResponse">
+    <part name="getDnxDocumentResponse" element="tns:getDnxDocumentResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getMetadataResponse">
+    <part name="getMetadataResponse" element="tns:getMetadataResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getCMSRecordResponse">
+    <part name="getCMSRecordResponse" element="tns:getCMSRecordResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getIEResponse">
+    <part name="getIEResponse" element="tns:getIEResponse" />
+  </message>
+  <portType name="DeliveryAccessWS">
+    <operation name="getBaseFileUrl" parameterOrder="getBaseFileUrl">
+      <documentation>Returns the base file URL for the given dvs. External viewers should append the file PID to the baseFileUrl in order to get the file's stream from Rosetta.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getBaseFileUrl">
+          <jaxws:javadoc>Returns the base file URL for the given dvs. External viewers should append the file PID to the baseFileUrl in order to get the file's stream from Rosetta.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getBaseFileUrl" />
+      <output message="tns:DeliveryAccessWS_getBaseFileUrlResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getCMSRecord" parameterOrder="getCMSRecord">
+      <documentation>Returns the CMS DC XML of the IE.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getCMSRecord">
+          <jaxws:javadoc>Returns the CMS DC XML of the IE.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getCMSRecord" />
+      <output message="tns:DeliveryAccessWS_getCMSRecordResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getDnxDocument" parameterOrder="getDnxDocument">
+      <documentation>Returns the DNX document XML of the entity (IE/REP/FILE) that its PID is associated to the given dvs.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getDnxDocument">
+          <jaxws:javadoc>Returns the DNX document XML of the entity (IE/REP/FILE) that its PID is associated to the given dvs.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getDnxDocument" />
+      <output message="tns:DeliveryAccessWS_getDnxDocumentResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getFilePathByDvs" parameterOrder="getFilePathByDvs">
+      <documentation>Returns the path to a file which is associated to the given dvs. File path is given by the StoragePlugin#getFullFilePath().</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getFilePathByDvs">
+          <jaxws:javadoc>Returns the path to a file which is associated to the given dvs. File path is given by the StoragePlugin#getFullFilePath().</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getFilePathByDvs" />
+      <output message="tns:DeliveryAccessWS_getFilePathByDvsResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getFullIEByDVS" parameterOrder="getFullIEByDVS">
+      <documentation>Returns the IE METS document which is associated to the given dvs, including the IE, Representation and File level sections.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getFullIEByDVS">
+          <jaxws:javadoc>Returns the IE METS document which is associated to the given dvs, including the IE, Representation and File level sections.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getFullIEByDVS" />
+      <output message="tns:DeliveryAccessWS_getFullIEByDVSResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getHeartBit" parameterOrder="getHeartBit">
+      <input message="tns:DeliveryAccessWS_getHeartBit" />
+      <output message="tns:DeliveryAccessWS_getHeartBitResponse" />
+    </operation>
+    <operation name="getIE" parameterOrder="getIE">
+      <input message="tns:DeliveryAccessWS_getIE" />
+      <output message="tns:DeliveryAccessWS_getIEResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getIEByDVS" parameterOrder="getIEByDVS">
+      <documentation>Returns the IE METS document which is associated to the given dvs, including the IE and Representation level sections.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getIEByDVS">
+          <jaxws:javadoc>Returns the IE METS document which is associated to the given dvs, including the IE and Representation level sections.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getIEByDVS" />
+      <output message="tns:DeliveryAccessWS_getIEByDVSResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getMetadata" parameterOrder="getMetadata">
+      <documentation>Returns the Metadata XML of the entity (IE/REP/FILE) that its PID is associated to the given dvs.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getMetadata">
+          <jaxws:javadoc>Returns the Metadata XML of the entity (IE/REP/FILE) that its PID is associated to the given dvs.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getMetadata" />
+      <output message="tns:DeliveryAccessWS_getMetadataResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="DeliveryAccessWSBinding" type="tns:DeliveryAccessWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getBaseFileUrl">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCMSRecord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getDnxDocument">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getFilePathByDvs">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getFullIEByDVS">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getHeartBit">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getIE">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getIEByDVS">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMetadata">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="DeliveryAccessWS">
+    <port name="DeliveryAccessWSPort" binding="tns:DeliveryAccessWSBinding">
+      <soap:address location="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS" />
+    </port>
+  </service>
+</definitions>

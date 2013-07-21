@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Exlibris.Rosetta.UpdateAIP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="host" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="user" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="pass" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="appUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="appPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1801</Value>
+    </Setting>
+    <Setting Name="remotedir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/exlibris/tmp/aipupdate</Value>
+    </Setting>
+    <Setting Name="UpdateAIP_DeliveryAccessWS_DeliveryAccessWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS</Value>
+    </Setting>
+    <Setting Name="institution" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UpdateAIP_IEWebService_IEWebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

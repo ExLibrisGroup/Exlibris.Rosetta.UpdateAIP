@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dps.exlibris.com/" name="IEWebServices" targetNamespace="http://dps.exlibris.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://dps.exlibris.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:element name="FixityEventException" type="tns:FixityEventException" />
+      <xs:element name="IEWSException" type="tns:IEWSException" />
+      <xs:element name="InvalidMIDException" type="tns:InvalidMIDException" />
+      <xs:element name="InvalidTypeException" type="tns:InvalidTypeException" />
+      <xs:element name="InvalidXmlException" type="tns:InvalidXmlException" />
+      <xs:element name="LockedIeException" type="tns:LockedIeException" />
+      <xs:element name="NotInPermanentException" type="tns:NotInPermanentException" />
+      <xs:element name="UserAuthorizeException" type="tns:UserAuthorizeException" />
+      <xs:element name="generateFixityEvent" type="tns:generateFixityEvent" />
+      <xs:element name="generateFixityEventResponse" type="tns:generateFixityEventResponse" />
+      <xs:element name="getHeartBit" type="tns:getHeartBit" />
+      <xs:element name="getHeartBitResponse" type="tns:getHeartBitResponse" />
+      <xs:element name="getIE" type="tns:getIE" />
+      <xs:element name="getIEMD" type="tns:getIEMD" />
+      <xs:element name="getIEMDResponse" type="tns:getIEMDResponse" />
+      <xs:element name="getIEResponse" type="tns:getIEResponse" />
+      <xs:element name="getMD" type="tns:getMD" />
+      <xs:element name="getMDResponse" type="tns:getMDResponse" />
+      <xs:element name="getRevisionStatus" type="tns:getRevisionStatus" />
+      <xs:element name="getRevisionStatusResponse" type="tns:getRevisionStatusResponse" />
+      <xs:element name="updateIEMD" type="tns:updateIEMD" />
+      <xs:element name="updateIEMDResponse" type="tns:updateIEMDResponse" />
+      <xs:element name="updateMD" type="tns:updateMD" />
+      <xs:element name="updateMDResponse" type="tns:updateMDResponse" />
+      <xs:element name="updateRepresentation" type="tns:updateRepresentation" />
+      <xs:element name="updateRepresentationResponse" type="tns:updateRepresentationResponse" />
+      <xs:complexType name="getHeartBit">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getHeartBitResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEMD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="iePID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEMDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getIEMD" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NotInPermanentException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserAuthorizeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IEWSException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="PID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getMD" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateIEMD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="iePID" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="metadata" type="tns:metaData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="metaData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content" type="xs:string" />
+          <xs:element minOccurs="0" name="mid" type="xs:string" />
+          <xs:element minOccurs="0" name="subType" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateIEMDResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="InvalidMIDException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="InvalidTypeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="InvalidXmlException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LockedIeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateMD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="PID" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="metadata" type="tns:metaData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateMDResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="generateFixityEvent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="event" type="tns:fixityEvent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fixityEvent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agentName" type="xs:string" />
+          <xs:element minOccurs="0" name="algorithmName" type="xs:string" />
+          <xs:element minOccurs="0" name="copyId" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="filePid" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="generateFixityEventResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="FixityEventException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRevisionStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="revisionID" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRevisionStatusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getRevisionStatus" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIE">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="iePid" type="xs:string" />
+          <xs:element minOccurs="0" name="flags" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getIE" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateRepresentation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="iePid" type="xs:string" />
+          <xs:element minOccurs="0" name="repPid" type="xs:string" />
+          <xs:element minOccurs="0" name="submissionReason" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="representationContent" type="tns:representationContent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="representationContent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="label" type="xs:string" />
+          <xs:element minOccurs="0" name="newFile" type="xs:string" />
+          <xs:element minOccurs="0" name="oldFilePid" type="xs:string" />
+          <xs:element minOccurs="0" name="operation" type="tns:operation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateRepresentationResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="operation">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ADD" />
+          <xs:enumeration value="REPLACE" />
+          <xs:enumeration value="REMOVE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </types>
+  <message name="IEWebServices_updateIEMD">
+    <part name="updateIEMD" element="tns:updateIEMD" />
+  </message>
+  <message name="IEWebServices_getMD">
+    <part name="getMD" element="tns:getMD" />
+  </message>
+  <message name="InvalidXmlException">
+    <part name="InvalidXmlException" element="tns:InvalidXmlException" />
+  </message>
+  <message name="IEWebServices_getRevisionStatus">
+    <part name="getRevisionStatus" element="tns:getRevisionStatus" />
+  </message>
+  <message name="IEWebServices_generateFixityEventResponse">
+    <part name="generateFixityEventResponse" element="tns:generateFixityEventResponse" />
+  </message>
+  <message name="IEWebServices_updateIEMDResponse">
+    <part name="updateIEMDResponse" element="tns:updateIEMDResponse" />
+  </message>
+  <message name="IEWebServices_getMDResponse">
+    <part name="getMDResponse" element="tns:getMDResponse" />
+  </message>
+  <message name="UserAuthorizeException">
+    <part name="UserAuthorizeException" element="tns:UserAuthorizeException" />
+  </message>
+  <message name="FixityEventException">
+    <part name="FixityEventException" element="tns:FixityEventException" />
+  </message>
+  <message name="Exception">
+    <part name="Exception" element="tns:Exception" />
+  </message>
+  <message name="IEWebServices_getIE">
+    <part name="getIE" element="tns:getIE" />
+  </message>
+  <message name="IEWebServices_updateMD">
+    <part name="updateMD" element="tns:updateMD" />
+  </message>
+  <message name="IEWebServices_getIEResponse">
+    <part name="getIEResponse" element="tns:getIEResponse" />
+  </message>
+  <message name="IEWebServices_updateRepresentationResponse">
+    <part name="updateRepresentationResponse" element="tns:updateRepresentationResponse" />
+  </message>
+  <message name="NotInPermanentException">
+    <part name="NotInPermanentException" element="tns:NotInPermanentException" />
+  </message>
+  <message name="IEWebServices_updateMDResponse">
+    <part name="updateMDResponse" element="tns:updateMDResponse" />
+  </message>
+  <message name="LockedIeException">
+    <part name="LockedIeException" element="tns:LockedIeException" />
+  </message>
+  <message name="IEWebServices_getRevisionStatusResponse">
+    <part name="getRevisionStatusResponse" element="tns:getRevisionStatusResponse" />
+  </message>
+  <message name="IEWebServices_getIEMDResponse">
+    <part name="getIEMDResponse" element="tns:getIEMDResponse" />
+  </message>
+  <message name="InvalidTypeException">
+    <part name="InvalidTypeException" element="tns:InvalidTypeException" />
+  </message>
+  <message name="IEWebServices_updateRepresentation">
+    <part name="updateRepresentation" element="tns:updateRepresentation" />
+  </message>
+  <message name="IEWebServices_getHeartBit">
+    <part name="getHeartBit" element="tns:getHeartBit" />
+  </message>
+  <message name="IEWebServices_generateFixityEvent">
+    <part name="generateFixityEvent" element="tns:generateFixityEvent" />
+  </message>
+  <message name="IEWebServices_getHeartBitResponse">
+    <part name="getHeartBitResponse" element="tns:getHeartBitResponse" />
+  </message>
+  <message name="InvalidMIDException">
+    <part name="InvalidMIDException" element="tns:InvalidMIDException" />
+  </message>
+  <message name="IEWSException">
+    <part name="IEWSException" element="tns:IEWSException" />
+  </message>
+  <message name="IEWebServices_getIEMD">
+    <part name="getIEMD" element="tns:getIEMD" />
+  </message>
+  <portType name="IEWebServices">
+    <operation name="generateFixityEvent" parameterOrder="generateFixityEvent">
+      <input message="tns:IEWebServices_generateFixityEvent" />
+      <output message="tns:IEWebServices_generateFixityEventResponse" />
+      <fault name="FixityEventException" message="tns:FixityEventException" />
+      <fault name="Exception" message="tns:Exception" />
+      <fault name="LockedIeException" message="tns:LockedIeException" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+    </operation>
+    <operation name="getHeartBit" parameterOrder="getHeartBit">
+      <input message="tns:IEWebServices_getHeartBit" />
+      <output message="tns:IEWebServices_getHeartBitResponse" />
+    </operation>
+    <operation name="getIE" parameterOrder="getIE">
+      <input message="tns:IEWebServices_getIE" />
+      <output message="tns:IEWebServices_getIEResponse" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+      <fault name="IEWSException" message="tns:IEWSException" />
+    </operation>
+    <operation name="getIEMD" parameterOrder="getIEMD">
+      <input message="tns:IEWebServices_getIEMD" />
+      <output message="tns:IEWebServices_getIEMDResponse" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+      <fault name="NotInPermanentException" message="tns:NotInPermanentException" />
+      <fault name="IEWSException" message="tns:IEWSException" />
+    </operation>
+    <operation name="getMD" parameterOrder="getMD">
+      <input message="tns:IEWebServices_getMD" />
+      <output message="tns:IEWebServices_getMDResponse" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+      <fault name="NotInPermanentException" message="tns:NotInPermanentException" />
+      <fault name="IEWSException" message="tns:IEWSException" />
+    </operation>
+    <operation name="getRevisionStatus" parameterOrder="getRevisionStatus">
+      <input message="tns:IEWebServices_getRevisionStatus" />
+      <output message="tns:IEWebServices_getRevisionStatusResponse" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+      <fault name="IEWSException" message="tns:IEWSException" />
+    </operation>
+    <operation name="updateIEMD" parameterOrder="updateIEMD">
+      <input message="tns:IEWebServices_updateIEMD" />
+      <output message="tns:IEWebServices_updateIEMDResponse" />
+      <fault name="Exception" message="tns:Exception" />
+      <fault name="LockedIeException" message="tns:LockedIeException" />
+      <fault name="NotInPermanentException" message="tns:NotInPermanentException" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+      <fault name="InvalidTypeException" message="tns:InvalidTypeException" />
+      <fault name="InvalidXmlException" message="tns:InvalidXmlException" />
+      <fault name="InvalidMIDException" message="tns:InvalidMIDException" />
+    </operation>
+    <operation name="updateMD" parameterOrder="updateMD">
+      <input message="tns:IEWebServices_updateMD" />
+      <output message="tns:IEWebServices_updateMDResponse" />
+      <fault name="Exception" message="tns:Exception" />
+      <fault name="LockedIeException" message="tns:LockedIeException" />
+      <fault name="NotInPermanentException" message="tns:NotInPermanentException" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+      <fault name="InvalidTypeException" message="tns:InvalidTypeException" />
+      <fault name="InvalidXmlException" message="tns:InvalidXmlException" />
+      <fault name="InvalidMIDException" message="tns:InvalidMIDException" />
+    </operation>
+    <operation name="updateRepresentation" parameterOrder="updateRepresentation">
+      <input message="tns:IEWebServices_updateRepresentation" />
+      <output message="tns:IEWebServices_updateRepresentationResponse" />
+      <fault name="Exception" message="tns:Exception" />
+      <fault name="LockedIeException" message="tns:LockedIeException" />
+      <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
+    </operation>
+  </portType>
+  <binding name="IEWebServicesBinding" type="tns:IEWebServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="generateFixityEvent">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="FixityEventException">
+        <soap:fault use="literal" name="FixityEventException" namespace="" />
+      </fault>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+      <fault name="LockedIeException">
+        <soap:fault use="literal" name="LockedIeException" namespace="" />
+      </fault>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getHeartBit">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getIE">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+      <fault name="IEWSException">
+        <soap:fault use="literal" name="IEWSException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getIEMD">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+      <fault name="NotInPermanentException">
+        <soap:fault use="literal" name="NotInPermanentException" namespace="" />
+      </fault>
+      <fault name="IEWSException">
+        <soap:fault use="literal" name="IEWSException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMD">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+      <fault name="NotInPermanentException">
+        <soap:fault use="literal" name="NotInPermanentException" namespace="" />
+      </fault>
+      <fault name="IEWSException">
+        <soap:fault use="literal" name="IEWSException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getRevisionStatus">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+      <fault name="IEWSException">
+        <soap:fault use="literal" name="IEWSException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateIEMD">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+      <fault name="LockedIeException">
+        <soap:fault use="literal" name="LockedIeException" namespace="" />
+      </fault>
+      <fault name="NotInPermanentException">
+        <soap:fault use="literal" name="NotInPermanentException" namespace="" />
+      </fault>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+      <fault name="InvalidTypeException">
+        <soap:fault use="literal" name="InvalidTypeException" namespace="" />
+      </fault>
+      <fault name="InvalidXmlException">
+        <soap:fault use="literal" name="InvalidXmlException" namespace="" />
+      </fault>
+      <fault name="InvalidMIDException">
+        <soap:fault use="literal" name="InvalidMIDException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateMD">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+      <fault name="LockedIeException">
+        <soap:fault use="literal" name="LockedIeException" namespace="" />
+      </fault>
+      <fault name="NotInPermanentException">
+        <soap:fault use="literal" name="NotInPermanentException" namespace="" />
+      </fault>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+      <fault name="InvalidTypeException">
+        <soap:fault use="literal" name="InvalidTypeException" namespace="" />
+      </fault>
+      <fault name="InvalidXmlException">
+        <soap:fault use="literal" name="InvalidXmlException" namespace="" />
+      </fault>
+      <fault name="InvalidMIDException">
+        <soap:fault use="literal" name="InvalidMIDException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateRepresentation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+      <fault name="LockedIeException">
+        <soap:fault use="literal" name="LockedIeException" namespace="" />
+      </fault>
+      <fault name="UserAuthorizeException">
+        <soap:fault use="literal" name="UserAuthorizeException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="IEWebServices">
+    <port name="IEWebServicesPort" binding="tns:IEWebServicesBinding">
+      <soap:address location="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices" />
+    </port>
+  </service>
+</definitions>

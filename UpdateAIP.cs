@@ -72,7 +72,7 @@ namespace Exlibris.Rosetta.UpdateAIP
             remotePath = PutFile(filePath);
 
             // Call UpdateRep with file
-            _ros.ReplaceFileInRep(iepid, reppid, flpid, "New file added by UpdateAIP app", remotePath);
+            _ros.ReplaceFileInRep(iepid, reppid, flpid, "New file added by UpdateAIP app", remotePath, filePath);
 
             // All good....
             log.Info(String.Format("File {0} replaced in {1}, {2}", fileName, iepid, reppid));

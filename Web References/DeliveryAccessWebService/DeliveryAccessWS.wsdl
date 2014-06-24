@@ -9,6 +9,8 @@
       <xs:element name="getCMSRecordResponse" type="tns:getCMSRecordResponse" />
       <xs:element name="getDnxDocument" type="tns:getDnxDocument" />
       <xs:element name="getDnxDocumentResponse" type="tns:getDnxDocumentResponse" />
+      <xs:element name="getExtendedIEByDVS" type="tns:getExtendedIEByDVS" />
+      <xs:element name="getExtendedIEByDVSResponse" type="tns:getExtendedIEByDVSResponse" />
       <xs:element name="getFilePathByDvs" type="tns:getFilePathByDvs" />
       <xs:element name="getFilePathByDvsResponse" type="tns:getFilePathByDvsResponse" />
       <xs:element name="getFullIEByDVS" type="tns:getFullIEByDVS" />
@@ -73,6 +75,17 @@
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="getFullIEByDVSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getExtendedIEByDVS">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dvs" type="xs:string" />
+          <xs:element name="flags" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getExtendedIEByDVSResponse">
         <xs:sequence>
           <xs:element minOccurs="0" name="return" type="xs:string" />
         </xs:sequence>
@@ -143,6 +156,9 @@
   <message name="DeliveryAccessWS_getBaseFileUrlResponse">
     <part name="getBaseFileUrlResponse" element="tns:getBaseFileUrlResponse" />
   </message>
+  <message name="DeliveryAccessWS_getExtendedIEByDVS">
+    <part name="getExtendedIEByDVS" element="tns:getExtendedIEByDVS" />
+  </message>
   <message name="DeliveryAccessWS_getFilePathByDvs">
     <part name="getFilePathByDvs" element="tns:getFilePathByDvs" />
   </message>
@@ -152,17 +168,20 @@
   <message name="DeliveryAccessWS_getFullIEByDVSResponse">
     <part name="getFullIEByDVSResponse" element="tns:getFullIEByDVSResponse" />
   </message>
-  <message name="Exception">
-    <part name="Exception" element="tns:Exception" />
-  </message>
   <message name="DeliveryAccessWS_getHeartBit">
     <part name="getHeartBit" element="tns:getHeartBit" />
+  </message>
+  <message name="Exception">
+    <part name="Exception" element="tns:Exception" />
   </message>
   <message name="DeliveryAccessWS_getCMSRecord">
     <part name="getCMSRecord" element="tns:getCMSRecord" />
   </message>
   <message name="DeliveryAccessWS_getIEByDVSResponse">
     <part name="getIEByDVSResponse" element="tns:getIEByDVSResponse" />
+  </message>
+  <message name="DeliveryAccessWS_getExtendedIEByDVSResponse">
+    <part name="getExtendedIEByDVSResponse" element="tns:getExtendedIEByDVSResponse" />
   </message>
   <message name="DeliveryAccessWS_getBaseFileUrl">
     <part name="getBaseFileUrl" element="tns:getBaseFileUrl" />
@@ -211,6 +230,17 @@
       </jaxws:bindings>
       <input message="tns:DeliveryAccessWS_getDnxDocument" />
       <output message="tns:DeliveryAccessWS_getDnxDocumentResponse" />
+      <fault name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getExtendedIEByDVS" parameterOrder="getExtendedIEByDVS">
+      <documentation>Returns the IE METS document which is associated to the given dvs, including all data defined by the flags.</documentation>
+      <jaxws:bindings>
+        <jaxws:method name="getExtendedIEByDVS">
+          <jaxws:javadoc>Returns the IE METS document which is associated to the given dvs, including all data defined by the flags.</jaxws:javadoc>
+        </jaxws:method>
+      </jaxws:bindings>
+      <input message="tns:DeliveryAccessWS_getExtendedIEByDVS" />
+      <output message="tns:DeliveryAccessWS_getExtendedIEByDVSResponse" />
       <fault name="Exception" message="tns:Exception" />
     </operation>
     <operation name="getFilePathByDvs" parameterOrder="getFilePathByDvs">
@@ -305,6 +335,18 @@
         <soap:fault use="literal" name="Exception" namespace="" />
       </fault>
     </operation>
+    <operation name="getExtendedIEByDVS">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
     <operation name="getFilePathByDvs">
       <soap:operation soapAction="" />
       <input>
@@ -377,7 +419,7 @@
   </binding>
   <service name="DeliveryAccessWS">
     <port name="DeliveryAccessWSPort" binding="tns:DeliveryAccessWSBinding">
-      <soap:address location="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS" />
+      <soap:address location="http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS" />
     </port>
   </service>
 </definitions>

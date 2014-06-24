@@ -21,8 +21,8 @@
       <xs:element name="getIEResponse" type="tns:getIEResponse" />
       <xs:element name="getMD" type="tns:getMD" />
       <xs:element name="getMDResponse" type="tns:getMDResponse" />
-      <xs:element name="getRevisionStatus" type="tns:getRevisionStatus" />
-      <xs:element name="getRevisionStatusResponse" type="tns:getRevisionStatusResponse" />
+      <xs:element name="getRipStatus" type="tns:getRipStatus" />
+      <xs:element name="getRipStatusResponse" type="tns:getRipStatusResponse" />
       <xs:element name="updateIEMD" type="tns:updateIEMD" />
       <xs:element name="updateIEMDResponse" type="tns:updateIEMDResponse" />
       <xs:element name="updateMD" type="tns:updateMD" />
@@ -37,6 +37,28 @@
           <xs:element minOccurs="0" name="return" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
+      <xs:complexType name="getIE">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
+          <xs:element minOccurs="0" name="iePid" type="xs:string" />
+          <xs:element minOccurs="0" name="flags" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIEResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getIE" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserAuthorizeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IEWSException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
       <xs:complexType name="getIEMD">
         <xs:sequence>
           <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
@@ -49,16 +71,6 @@
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="NotInPermanentException">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="message" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="UserAuthorizeException">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="message" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="IEWSException">
         <xs:sequence>
           <xs:element minOccurs="0" name="message" type="xs:string" />
         </xs:sequence>
@@ -151,27 +163,15 @@
           <xs:element minOccurs="0" name="message" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="getRevisionStatus">
+      <xs:complexType name="getRipStatus">
         <xs:sequence>
           <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
-          <xs:element minOccurs="0" name="revisionID" type="xs:long" />
+          <xs:element minOccurs="0" name="ripID" type="xs:long" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="getRevisionStatusResponse">
+      <xs:complexType name="getRipStatusResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="getRevisionStatus" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="getIE">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="pdsHandle" type="xs:string" />
-          <xs:element minOccurs="0" name="iePid" type="xs:string" />
-          <xs:element minOccurs="0" name="flags" type="xs:long" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="getIEResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="getIE" type="xs:string" />
+          <xs:element minOccurs="0" name="getRipStatus" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="updateRepresentation">
@@ -185,10 +185,18 @@
       </xs:complexType>
       <xs:complexType name="representationContent">
         <xs:sequence>
+          <xs:element minOccurs="0" name="fileOriginalPath" type="xs:string" />
+          <xs:element minOccurs="0" name="fixity" type="tns:fixity" />
           <xs:element minOccurs="0" name="label" type="xs:string" />
           <xs:element minOccurs="0" name="newFile" type="xs:string" />
           <xs:element minOccurs="0" name="oldFilePid" type="xs:string" />
           <xs:element minOccurs="0" name="operation" type="tns:operation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fixity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="algorithmType" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="updateRepresentationResponse">
@@ -214,9 +222,6 @@
   <message name="InvalidXmlException">
     <part name="InvalidXmlException" element="tns:InvalidXmlException" />
   </message>
-  <message name="IEWebServices_getRevisionStatus">
-    <part name="getRevisionStatus" element="tns:getRevisionStatus" />
-  </message>
   <message name="IEWebServices_generateFixityEventResponse">
     <part name="generateFixityEventResponse" element="tns:generateFixityEventResponse" />
   </message>
@@ -238,6 +243,9 @@
   <message name="IEWebServices_getIE">
     <part name="getIE" element="tns:getIE" />
   </message>
+  <message name="IEWebServices_getRipStatusResponse">
+    <part name="getRipStatusResponse" element="tns:getRipStatusResponse" />
+  </message>
   <message name="IEWebServices_updateMD">
     <part name="updateMD" element="tns:updateMD" />
   </message>
@@ -255,9 +263,6 @@
   </message>
   <message name="LockedIeException">
     <part name="LockedIeException" element="tns:LockedIeException" />
-  </message>
-  <message name="IEWebServices_getRevisionStatusResponse">
-    <part name="getRevisionStatusResponse" element="tns:getRevisionStatusResponse" />
   </message>
   <message name="IEWebServices_getIEMDResponse">
     <part name="getIEMDResponse" element="tns:getIEMDResponse" />
@@ -285,6 +290,9 @@
   </message>
   <message name="IEWebServices_getIEMD">
     <part name="getIEMD" element="tns:getIEMD" />
+  </message>
+  <message name="IEWebServices_getRipStatus">
+    <part name="getRipStatus" element="tns:getRipStatus" />
   </message>
   <portType name="IEWebServices">
     <operation name="generateFixityEvent" parameterOrder="generateFixityEvent">
@@ -319,9 +327,9 @@
       <fault name="NotInPermanentException" message="tns:NotInPermanentException" />
       <fault name="IEWSException" message="tns:IEWSException" />
     </operation>
-    <operation name="getRevisionStatus" parameterOrder="getRevisionStatus">
-      <input message="tns:IEWebServices_getRevisionStatus" />
-      <output message="tns:IEWebServices_getRevisionStatusResponse" />
+    <operation name="getRipStatus" parameterOrder="getRipStatus">
+      <input message="tns:IEWebServices_getRipStatus" />
+      <output message="tns:IEWebServices_getRipStatusResponse" />
       <fault name="UserAuthorizeException" message="tns:UserAuthorizeException" />
       <fault name="IEWSException" message="tns:IEWSException" />
     </operation>
@@ -438,7 +446,7 @@
         <soap:fault use="literal" name="IEWSException" namespace="" />
       </fault>
     </operation>
-    <operation name="getRevisionStatus">
+    <operation name="getRipStatus">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -534,7 +542,7 @@
   </binding>
   <service name="IEWebServices">
     <port name="IEWebServicesPort" binding="tns:IEWebServicesBinding">
-      <soap:address location="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices" />
+      <soap:address location="http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices" />
     </port>
   </service>
 </definitions>

@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using Exlibris.Rosetta.UpdateAIP.DeliveryAccessWebService;
 using Exlibris.Rosetta.UpdateAIP.IEWebService;
+using System.Security.Cryptography;
 
 namespace Exlibris.Rosetta.UpdateAIP
 {
@@ -184,13 +185,27 @@ namespace Exlibris.Rosetta.UpdateAIP
         /// <param name="repPid">PID of the representation for which a new revision will be created</param>
         /// <param name="filePid">PID of the file being replaced</param>
         /// <param name="submissionReason">A text note which indicates why the revision is being created</param>
-        /// <param name="filePath"></param>
-        public void ReplaceFileInRep(string iePid, string repPid, string filePid, string submissionReason, string filePath)
+        /// <param name="filePath">Path of file on remote server</param>
+        /// <param name="localPath">Local path of file, optional. If provided, fixity will be calculated and provided to Rosetta.</param>
+        public void ReplaceFileInRep(string iePid, string repPid, string filePid, string submissionReason, string filePath, string localPath = null)
         {
 
             IEWebServices ws = new IEWebServices();
             ws.Url = String.Format("http://{0}:{1}/dpsws/repository/IEWebServices",
                 Host, Port);
+
+            fixity fixity = new fixity();
+
+            // If local path exists, calculate fixity
+            if (!String.IsNullOrEmpty(localPath))
+            {
+                fixity.algorithmType = "MD5";
+                var md5 = MD5.Create();
+                using (var stream = File.OpenRead(localPath))
+                {
+                    fixity.value = BitConverter.ToString(md5.ComputeHash(stream)).Replace("-", "").ToLower();
+                }
+            }
 
             // Call service
             updateRepresentationResponse resp = ws.updateRepresentation(new updateRepresentation() 
@@ -202,7 +217,8 @@ namespace Exlibris.Rosetta.UpdateAIP
                             oldFilePid = filePid,
                             newFile = filePath,
                             operation = operation.REPLACE,
-                            operationSpecified = true // c# oddity when serializing enums
+                            operationSpecified = true, // c# oddity when serializing enums
+                            fixity = fixity
                         }
                     }, 
                     submissionReason = "updated by vendor" 
@@ -298,4 +314,5 @@ namespace Exlibris.Rosetta.UpdateAIP
 
         #endregion
     }
+
 }

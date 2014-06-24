@@ -24,13 +24,13 @@
       <Value Profile="(Default)">/exlibris/tmp/aipupdate</Value>
     </Setting>
     <Setting Name="UpdateAIP_DeliveryAccessWS_DeliveryAccessWS" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS</Value>
+      <Value Profile="(Default)">http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS</Value>
     </Setting>
     <Setting Name="institution" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="UpdateAIP_IEWebService_IEWebServices" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices</Value>
+      <Value Profile="(Default)">http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices</Value>
     </Setting>
   </Settings>
 </SettingsFile>

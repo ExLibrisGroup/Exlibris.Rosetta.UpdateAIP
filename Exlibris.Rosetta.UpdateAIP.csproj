@@ -110,6 +110,9 @@
     <None Include="Web References\DeliveryAccessWebService\getDnxDocumentResponse1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\DeliveryAccessWebService\getExtendedIEByDVSResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\DeliveryAccessWebService\getFilePathByDvsResponse1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -147,7 +150,7 @@
     <None Include="Web References\IEWebService\getMDResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\IEWebService\getRevisionStatusResponse.datasource">
+    <None Include="Web References\IEWebService\getRipStatusResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\IEWebService\IEWebServices.wsdl" />
@@ -172,10 +175,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS%3fwsdl">
+    <WebReferenceUrl Include="http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DeliveryAccessWebService\</RelPath>
-      <UpdateFromURL>http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -183,10 +186,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>UpdateAIP_DeliveryAccessWS_DeliveryAccessWS</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices%3fwsdl">
+    <WebReferenceUrl Include="http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\IEWebService\</RelPath>
-      <UpdateFromURL>http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/repository/IEWebServices%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

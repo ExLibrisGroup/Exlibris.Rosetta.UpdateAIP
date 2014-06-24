@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://il-dps02.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS?wsdl" filename="DeliveryAccessWS.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://il-dps01.corp.exlibrisgroup.com:1801/dpsws/delivery/DeliveryAccessWS?wsdl" filename="DeliveryAccessWS.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>

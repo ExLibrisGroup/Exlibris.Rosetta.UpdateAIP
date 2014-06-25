@@ -218,7 +218,8 @@ namespace Exlibris.Rosetta.UpdateAIP
                             newFile = filePath,
                             operation = operation.REPLACE,
                             operationSpecified = true, // c# oddity when serializing enums
-                            fixity = fixity
+                            fixity = fixity,
+                            fileOriginalPath = Path.GetFullPath(localPath)
                         }
                     }, 
                     submissionReason = "updated by vendor" 
